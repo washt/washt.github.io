@@ -45,15 +45,13 @@ import java.awt.*;
 import java.util.Random;
 
 public class StickFigure {
-
-    //vars
-
+   // Up state rectangle cords
     private int[] upX = {145,140,140,165,80,170};
     private int[] upY = {85,110,175,175,110,110};
     private int[] upW = {25,40,15,15,75,75};
     private int[] upH = {25,75,75,75,15,15};
 
-
+     // Down state rectangle cords
     private int[] downX = {145,140,75,175,130,170};
     private int[] downY = {85,110,175,175,50,50};
     private int[] downW = {25,40,75,75,15,15};
@@ -88,7 +86,7 @@ public class StickFigure {
         }
 
     }
-
+    //default constructor 
     StickFigure() {
         JumpDown();
     }
