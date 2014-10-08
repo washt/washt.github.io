@@ -11,11 +11,11 @@ For this post, I will create a basic animation of a stick figure doing jumping j
 
 To begin, we'll need to organize our code into two files: a java class to describe the state and behavior of our stick fiqure, and a main code file to initilize our stickfigure and handle the lifecycle of the applet. 
 
-Our java class will be called <h1>StickFigure.java</h1> It can be broken down into three parts: private variables that contain the state, the accessors or methods that access the private data, and two methods: JumpUp and JumpDown.
+Our java class will be called `StickFigure.java` It can be broken down into three parts: private variables that contain the state, the accessors or methods that *access* the private data, and two methods: JumpUp and JumpDown.
 
 The first section contains the axis cordinates stored in arrays. 
 {% highlight Java %}
-    private int[] upX = {145,140,140,165,80,170};
+        private int[] upX = {145,140,140,165,80,170};
     private int[] upY = {85,110,175,175,110,110};
     private int[] upW = {25,40,15,15,75,75};
     private int[] upH = {25,75,75,75,15,15}
@@ -23,7 +23,7 @@ The first section contains the axis cordinates stored in arrays.
 Since these variables are private, they can only be accessed by functions of its own class.
 Therefore we need to create accessors that our JumpUp and JumpDown Methods can Use.
 {% highlight Java %}
-    public int getUpX(int i) {return upX[i];}
+        public int getUpX(int i) {return upX[i];}
     public int getUpY(int i) {return upY[i];}
     public int getUpW(int i) {return upW[i];}
     public int getUpH(int i) {return upH[i];}
