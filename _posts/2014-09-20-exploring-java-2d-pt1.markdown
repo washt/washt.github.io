@@ -28,7 +28,7 @@ Therefore we need to create accessors that our JumpUp and JumpDown Methods can U
     public int getUpW(int i) {return upW[i];}
     public int getUpH(int i) {return upH[i];}
 {% endhighlight %}
-This method iterates through the four accessors, drawing each respective point in the array on everypass. 
+This method iterates through the four accessors, drawing each respective point in the array on every pass. 
 {% highlight Java %}
 public void JumpUp() {
 	for(int i<0; i<6;i++) {
