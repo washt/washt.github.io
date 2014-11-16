@@ -36,4 +36,4 @@ public class JumpingJackApplet extends  Applet {
         System.out.println(">>DESTROY<<");
     }
 }
-{% endhilight %}
+{% endhighlight %}
