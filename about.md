@@ -7,11 +7,11 @@ Tucker.
 
 I enjoy:
 
-* Programming
+* Making games
 * Jamming on my drums
 * Mountain Biking
 * Word Jousting
 
-C.S. undergrad.  
-Blogging mostly about relevant and not-so-relevant learnings.  
+C.S. undergrad.
+
 Direct Q's and C's to Twitter @getbuckTuck 
