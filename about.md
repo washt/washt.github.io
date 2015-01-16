@@ -8,8 +8,8 @@ Tucker.
 I enjoy:
 
 * Making games
-* Jamming on my drums
-* Mountain Biking
+* Percussion 
+* Mountain Biking and Adventures 
 * Word Jousting
 
 C.S. undergrad at Old Dominion University.
