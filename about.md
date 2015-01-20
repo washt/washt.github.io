@@ -3,17 +3,15 @@ layout: page
 title: About
 permalink: /about/
 ---
-<h2>Tucker</h2><br />
-<h2>C.S. undergrad at Old Dominion University</h2>
-
+<h2>Tucker</h2>
+<h3>C.S. undergrad at Old Dominion University</h3><br />
 <h3>Some things I like:</h3>
 
 * Making games
 * Percussion 
 * Mountain Biking and Adventures 
 * Word Jousting
-
-<h3>Relavant Studies:</h3>  
+<br /><h3>Relavant Studies:</h3>  
 
 {% highlight Java %}
 
