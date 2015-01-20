@@ -3,17 +3,17 @@ layout: page
 title: About
 permalink: /about/
 ---
-Tucker
-C.S. undergrad at Old Dominion University
+<h2>Tucker</h2><br />
+<h2>C.S. undergrad at Old Dominion University</h2>
 
-Some things I like:
+<h3>Some things I like:</h3>
 
 * Making games
 * Percussion 
 * Mountain Biking and Adventures 
 * Word Jousting
 
-Relavant Studies: 
+<h3>Relavant Studies:</h3>  
 
 {% highlight Java %}
 
@@ -32,7 +32,7 @@ Intro to Unix for Programmers
 Object Oriented Programming and Design
 	//
 
-{% endhighlight%}
+{% endhighlight%} <br />
 
 
 
