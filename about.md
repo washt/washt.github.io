@@ -11,7 +11,8 @@ permalink: /about/
 * Percussion 
 * Mountain Biking and Adventures 
 * Word Jousting
-<br /><h3>Relavant Studies:</h3>  
+<br />
+<h3>Relavant Studies:</h3>  
 
 {% highlight Java %}
 
