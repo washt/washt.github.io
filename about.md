@@ -3,16 +3,15 @@ layout: page
 title: About
 permalink: /about/
 ---
-Tucker.
+Tucker
+C.S. undergrad at Old Dominion University
 
-I enjoy:
+Some things I like:
 
 * Making games
 * Percussion 
 * Mountain Biking and Adventures 
 * Word Jousting
-
-C.S. undergrad at Old Dominion University.
 
 Relavant Studies: 
 
@@ -28,6 +27,11 @@ Advanced Computer Arch.
 	//	
 Concepts of Simulation 
 	//
+Intro to Unix for Programmers
+	//
+Object Oriented Programming and Design
+	//
+
 {% endhighlight%}
 
 
