@@ -28,17 +28,15 @@ Concepts of Simulation
 	//
 Intro to Unix for Programmers
 	//
+Computers in Society
+	//
 Object Oriented Programming and Design
 	//
 Advanced Data Structures and Algorithms
 	//
 Intro to Discrete Structures
 	//
-Intro to UNIX for Programmers
-	//
 Networked Systems Security
-	//
-Computers in Society
 	//
 
 {% endhighlight%} <br />
