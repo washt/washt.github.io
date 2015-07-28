@@ -1,6 +1,6 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
 ---
-<h2>Python ANN</h2>
+<a href="https://github.com/washt/NeuralNetPy">Python ANN</a>
