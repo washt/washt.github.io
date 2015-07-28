@@ -14,32 +14,43 @@ permalink: /about/
 <br />
 <h3>Relavant Studies:</h3>  
 
-{% highlight Java %}
+<h4>Summer 2014</h4>
+{% highlight Python %}
 
 Intro to Computer Science
 	//
 Intro to Computer Arch. 
-	//
+      //
+{% endhighlight %} <br />
+
+<h4> Fall 2014 </h4>
+
+{% highlight Python %}
+
 Programming in C++
 	//
 Advanced Computer Arch.
 	//	
 Concepts of Simulation 
 	//
+{% endhighlight %} <br />
+<h4> Spring 2015 </h4>
+{% highlight Python %}
 Intro to Unix for Programmers
 	//
 Computers in Society
 	//
 Object Oriented Programming and Design
 	//
-Advanced Data Structures and Algorithms
-	//
 Intro to Discrete Structures
 	//
 Networked Systems Security
 	//
-
 {% endhighlight%} <br />
+<h4> Summer 2015 </h4>
+{% highlight Python %}
+Intro to Software Engineering
+{% endhighlight %} <br />
 
 
 
