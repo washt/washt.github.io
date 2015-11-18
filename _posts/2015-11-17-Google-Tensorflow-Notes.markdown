@@ -6,7 +6,6 @@ categories: machine learning
 ---
 
 #### This is a collection of notes made in a Jupyter notebook while going over the [Deep-MNIST Tutorial](http://tensorflow.org/tutorials/) for Google's Tensorflow. Some comments are ripped directly off the page, while others are attempts to simply concepts or explicitly explain what may be implied. Data set `input_data` can be found [here](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/input_data.py).
----------
 #### Setup<br>
 {% highlight Python %}
 import input_data
@@ -15,13 +14,10 @@ mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 session  = tf.InteractiveSession()
 {% endhighlight %}
 
---------
+#### Placeholders are not specific values -- but containers that we'll input later into TensorFlow to run a computation.
 {% highlight Python %}
 
 '''
-    placeholders are not specific values -- but containers
-    that we'll input later into TensorFlow to run a computation.
-
     Shape:
       784 -> Flattened MNIST image
        10 -> Number Classification
@@ -46,7 +42,6 @@ session.run(tf.initialize_all_variables())
 This is my first encounter with TensorFlow, but this appears to be a key feature:
 This step doesn't actually train the model, but instead adds the necessary
 operations to our tensors computational graph.
-------------
 
 {% highlight Python %}
 y = tf.nn.softmax(tf.matmul(x,W) + b)
@@ -75,8 +70,7 @@ __*Note*__: you can replace any tensor in your computation graph
 using `feed_dict` -- it's not restricted to just placeholders <br>
 
 #### Measure Accuracy - `argmax` returns the index of the highest entry in a tensor along some axis.
-
-In order to test the accuracy, we cast the matrix of booleans returned by .equal() to 1's and 0'1, and take the average
+##### In order to test the accuracy, we cast the matrix of booleans returned by .equal() to 1's and 0'1, and take the average
 -----------
 
 {% highlight Python %}
