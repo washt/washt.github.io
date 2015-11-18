@@ -3,57 +3,11 @@ layout: page
 title: About
 permalink: /about/
 ---
-<h2>Tucker</h2>
-<h3>C.S. undergrad at Old Dominion University</h3><br />
-<h3>Some things I like:</h3>
+![Me](https://s.gravatar.com/avatar/b94dcd5acada69cb1675a6698ddba404?s=80)
 
-* Making games
-* Percussion 
-* Mountain Biking and Adventures 
-* Word Jousting
-<br />
-<h3>Relavant Studies:</h3>  
-
-<h4>Summer 2014</h4>
-{% highlight Python %}
-
-Intro to Computer Science
-	//
-Intro to Computer Arch. 
-      //
-{% endhighlight %} <br />
-
-<h4> Fall 2014 </h4>
-
-{% highlight Python %}
-
-Programming in C++
-	//
-Advanced Computer Arch.
-	//	
-Concepts of Simulation 
-	//
-{% endhighlight %} <br />
-<h4> Spring 2015 </h4>
-{% highlight Python %}
-Intro to Unix for Programmers
-	//
-Computers in Society
-	//
-Object Oriented Programming and Design
-	//
-Intro to Discrete Structures
-	//
-Networked Systems Security
-	//
-{% endhighlight%} <br />
-<h4> Summer 2015 </h4>
-{% highlight Python %}
-Intro to Software Engineering
-{% endhighlight %} <br />
+Salutations! I'm Tucker, a student at [ODU](http://www.cs.odu.edu/) majoring in Computer Science. I currently work with robots and cameras, doing [undergraduate research](http://www.eng.odu.edu/visionlab/people.php#ug_0) at the [Virginia Institute for Image and Vision Analysis](http://www.eng.odu.edu/visionlab/). I also hack on python while building business systems at [The Franklin Johnston Group](http://thefranklinjohnstongroup.com/profile/). Hackathons are a fun pastime for me, and I managed to [place](http://www.cs.odu.edu/show_news.shtml?231) at my most recent one. In my spare time, I enjoy cooking,finding new music, and word jousting.
 
 
 
 
-
-Direct Q's and C's to Twitter @getbuckTuck 
+Direct Q's and C's to Twitter @getbuckTuck
