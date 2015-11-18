@@ -5,7 +5,7 @@ date:  2015-11-17 18:38
 categories: machine learning
 ---
 
-### This is a collection of notes made in a Jupyter notebook while going over the [Deep-MNIST](http://tensorflow.org/tutorials/mnist/pros/index.md) tutorial for Google's Tensorflow. Some comments are ripped directly off the page, while others are attempts to simply concepts or explicitly explain what may be implied.
+This is a collection of notes made in a Jupyter notebook while going over the [Deep-MNIST](http://tensorflow.org/tutorials/mnist/pros/index.md) tutorial for Google's Tensorflow. Some comments are ripped directly off the page, while others are attempts to simply concepts or explicitly explain what may be implied.
 ---------
 
 {% highlight Python %}
@@ -16,7 +16,7 @@ session  = tf.InteractiveSession()
 {% endhighlight %}
 
 Data set can be found [here]()
-
+--------
 {% highlight Python %}
 
 '''
@@ -42,10 +42,10 @@ session.run(tf.initialize_all_variables())
 
 {% endhighlight %}
 
+### Softmax Regression
+------------
 
 {% highlight Python %}
-
-# Softmax regression
 y = tf.nn.softmax(tf.matmul(x,W) + b)
 # Cost function -> cross-entropy between
 # the target and the model's prediction for the entire minibatch
@@ -58,6 +58,8 @@ train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
 {% endhighlight %}
 
+### Training
+------------
 
 {% highlight Python %}
 
@@ -71,6 +73,9 @@ for i in range(1000):
     train_step.run(feed_dict={x: batch[0], y_: batch[1]})
 
 {% endhighlight %}
+
+### Measure Accuracy
+-----------
 
 {% highlight Python %}
 # `argmax` returns the index of the highest
@@ -88,6 +93,8 @@ print "Softmax Regression Accuracy ",accuracy.eval(feed_dict={x:mnist.test.image
 
 {% endhighlight %}
 
+### Deep Convolution Network
+-------
 
 {% highlight Python %}
 
@@ -125,10 +132,11 @@ def max_pool_2x2(x):
 
 {% endhighlight %}
 
+### First Convolutional Layer
+---------
 
 {% highlight Python %}
 
-# First Convolutional Layer
 W_conv1 = weight_variable([5,5,1,32])
 b_conv1 = bias_variable([32])
 
@@ -139,10 +147,11 @@ h_pool1 = max_pool_2x2(h_conv1)
 
 {% endhighlight %}
 
+### Second Convolutional Layer
+----------
 
 {% highlight Python %}
 
-# Second Convolutional Layer -
 # 64 Features per 5x5 patch
 W_conv2 = weight_variable([5,5,32,64])
 b_conv2 = bias_variable([64])
@@ -152,10 +161,10 @@ h_pool2 = max_pool_2x2(h_conv2)
 
 {% endhighlight %}
 
-
+### Densely Connected Layer
+---------
 {% highlight Python %}
 
-# Densely Connected Layer
 # Reduce image to 7x7, add a fully-connected layer w/
 # 1024 neurons to process the entire image.
 # We then reshape the tensor from the pooling layer
@@ -169,10 +178,11 @@ h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat,W_fc1) + b_fc1)
 
 {% endhighlight %}
 
+### Dropout Step
+--------
 
 {% highlight Python %}
 
-# Dropout
 # Since our densly connected layer is prone
 # to overfitting, we `dropout` some nodes
 # We create a `placeholder` container for the
@@ -185,15 +195,18 @@ h_fc1_drop = tf.nn.dropout(h_fc1,keep_prob)
 
 {% endhighlight %}
 
-
+### Readout Layer - softmax
+-------
 {% highlight Python %}
 
-# Readout Layer - softmax
 W_fc2 = weight_variable([1024,10])
 b_fc2 = bias_variable([10])
 y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 
 {% endhighlight %}
+
+### Training the Network
+--------
 
 {% highlight Python %}
 
