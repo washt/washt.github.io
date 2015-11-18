@@ -71,8 +71,8 @@ __*Note*__: you can replace any tensor in your computation graph
 using `feed_dict` -- it's not restricted to just placeholders <br>
 
 #### Measure Accuracy - `argmax` returns the index of the highest entry in a tensor along some axis.
+
 ##### In order to test the accuracy, we cast the matrix of booleans returned by .equal() to 1's and 0'1, and take the average
------------
 
 {% highlight Python %}
 # argmax(y,1) -> what the model predicted
@@ -86,8 +86,6 @@ print "Softmax Regression Accuracy ",accuracy.eval(feed_dict={x:mnist.test.image
 {% endhighlight %}
 
 ### Deep Convolution Network
--------
-
 {% highlight Python %}
 
 def weight_variable(shape):
@@ -125,7 +123,6 @@ def max_pool_2x2(x):
 {% endhighlight %}
 
 #### First Convolutional Layer
----------
 
 {% highlight Python %}
 
@@ -140,7 +137,6 @@ h_pool1 = max_pool_2x2(h_conv1)
 {% endhighlight %}
 
 #### Second Convolutional Layer
-----------
 
 {% highlight Python %}
 
@@ -159,7 +155,7 @@ We now reduce image to 7x7, and add a fully-connected layer w/ 1024 neurons
 to process the entire image. We then reshape the tensor from the pooling layer
 into a batch of vectors, then multiply by a weight matrix,
 add a bias and apply a Rectified Linear Units(ReLU)
----------
+
 {% highlight Python %}
 
 W_fc1 = weight_variable([7 * 7 * 64,1024])
@@ -176,8 +172,6 @@ Since our densly connected layer is prone to overfitting,
 we `dropout` some nodes in the graph. We create a `placeholder` container
 for the probability that a node is kept -- this is turned off during testing.
 
---------
-
 {% highlight Python %}
 
 keep_prob = tf.placeholder("float")
@@ -188,7 +182,7 @@ h_fc1_drop = tf.nn.dropout(h_fc1,keep_prob)
 {% endhighlight %}
 
 #### Readout Layer - softmax
--------
+
 {% highlight Python %}
 
 W_fc2 = weight_variable([1024,10])
@@ -202,7 +196,6 @@ y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 Pretty similar to the Sofmax network save an improved
 ADAM opimizer over 0.1 Gradient Decent Step,
 additional parameters for dropout, and logging.
---------
 
 {% highlight Python %}
 
