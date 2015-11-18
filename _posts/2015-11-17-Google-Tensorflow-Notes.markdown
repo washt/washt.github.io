@@ -6,7 +6,8 @@ categories: machine learning
 ---
 
 #### This is a collection of notes made in a Jupyter notebook while going over the [Deep-MNIST Tutorial](http://tensorflow.org/tutorials/) for Google's Tensorflow. Some comments are ripped directly off the page, while others are attempts to simply concepts or explicitly explain what may be implied. Data set `input_data` can be found [here](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/input_data.py).
-#### Setup<br>
+
+#### Setup <br>
 {% highlight Python %}
 import input_data
 import tensorflow as tf
