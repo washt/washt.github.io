@@ -8,7 +8,7 @@ categories: tensorflow,neural networks, machine learning,MNIST
 ### This is a collection of notes made in a Jupyter notebook while going over the [Deep-MNIST](http://tensorflow.org/tutorials/mnist/pros/index.md) tutorial for Google's Tensorflow. Some comments are ripped directly off the page, while others are attempts to simply concepts or explicitly explain what may be implied.
 
 
-```python
+``` python
 import input_data
 import tensorflow as tf
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
@@ -16,7 +16,9 @@ session  = tf.InteractiveSession()
 
 ```
 Data set can be found [here]()
-```python
+
+``` python
+
 '''
     placeholders are not specific values -- but containers
     that we'll input later into TensorFlow to run a computation.
@@ -37,10 +39,12 @@ y_ = tf.placeholder("float",shape=[None,10])
 '''
 # register the variable with thge given session
 session.run(tf.initialize_all_variables())
+
 ```
 
 
-```python
+``` python
+
 # Softmax regression
 y = tf.nn.softmax(tf.matmul(x,W) + b)
 # Cost function -> cross-entropy between
@@ -51,10 +55,11 @@ cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 # **Note**: This actually doesn't train the model, but adds the necessary
 # operations to the computational graph
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
+
 ```
 
 
-```python
+``` python
 for i in range(1000):
     # for each training step, load 50 examples
     batch = mnist.train.next_batch(50)
@@ -66,8 +71,7 @@ for i in range(1000):
 
 ```
 
-
-```python
+``` python
 # `argmax` returns the index of the highest
 # entry in a tensor along some axis
 # argmax(y,1) -> what the model predicted
@@ -78,15 +82,13 @@ correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(y_,1))
 # of booleans returned by .equal()
 # to 1's and 0'1, and take the average
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
-print "Softmax Regression Accuracy ",accuracy.eval(feed_dict={x: mnist.test.images,
-                                           y_: mnist.test.labels})
+print "Softmax Regression Accuracy ",accuracy.eval(feed_dict={x:mnist.test.images,
+                           y_: mnist.test.labels})
+
 ```
 
-    Softmax Regression Accuracy  0.9092
+``` python
 
-
-
-```python
 def weight_variable(shape):
     '''
       Initialize variables with small \
@@ -118,10 +120,12 @@ def max_pool_2x2(x):
     '''
     return tf.nn.max_pool(x,ksize=[1,2,2,1],
                           strides=[1,2,2,1],padding='SAME')
+
 ```
 
 
-```python
+``` python
+
 # First Convolutional Layer
 W_conv1 = weight_variable([5,5,1,32])
 b_conv1 = bias_variable([32])
@@ -130,10 +134,12 @@ b_conv1 = bias_variable([32])
 x_image = tf.reshape(x,[-1,28,28,1])
 h_conv1 = tf.nn.relu(conv2d(x_image,W_conv1) + b_conv1)
 h_pool1 = max_pool_2x2(h_conv1)
+
 ```
 
 
-```python
+``` python
+
 # Second Convolutional Layer -
 # 64 Features per 5x5 patch
 W_conv2 = weight_variable([5,5,32,64])
@@ -141,10 +147,12 @@ b_conv2 = bias_variable([64])
 
 h_conv2 = tf.nn.relu(conv2d(h_pool1,W_conv2) + b_conv2)
 h_pool2 = max_pool_2x2(h_conv2)
+
 ```
 
 
-```python
+``` python
+
 # Densely Connected Layer
 # Reduce image to 7x7, add a fully-connected layer w/
 # 1024 neurons to process the entire image.
@@ -156,10 +164,12 @@ b_fc1 = bias_variable([1024])
 
 h_pool2_flat = tf.reshape(h_pool2,[-1,7 * 7 * 64])
 h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat,W_fc1) + b_fc1)
+
 ```
 
 
-```python
+``` python
+
 # Dropout
 # Since our densly connected layer is prone
 # to overfitting, we `dropout` some nodes
@@ -170,18 +180,21 @@ keep_prob = tf.placeholder("float")
 # TF's `tf.nn.dropout` function automagically
 # scales and masks neuron outputs, so Dropout reduced to one line of code:
 h_fc1_drop = tf.nn.dropout(h_fc1,keep_prob)
+
 ```
 
 
-```python
+``` python
+
 # Readout Layer - softmax
 W_fc2 = weight_variable([1024,10])
 b_fc2 = bias_variable([10])
 y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
+
 ```
 
+``` python
 
-```python
 '''
     Pretty similar to the Sofmax network save an improved ADAM opimizer
     over 0.1 Gradient Decent Step, additional parameters for dropout, and logging.
@@ -203,4 +216,5 @@ for i in range(20000):
 print "Test Accuracy %g"%accuracy.eval(feed_dict={
         x:mnist.test.images,y_:mnist.test.labels, keep_prob:1.0
     })
+
 ```
