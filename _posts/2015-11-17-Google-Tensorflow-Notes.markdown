@@ -5,16 +5,16 @@ date:  2015-11-17 18:38
 categories: machine learning
 ---
 
-#### This is a collection of notes made in a Jupyter notebook while going over the [Deep-MNIST](http://tensorflow.org/tutorials/mnist/pros/index.md) tutorial for Google's Tensorflow. Some comments are ripped directly off the page, while others are attempts to simply concepts or explicitly explain what may be implied. Data set can be found [here](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/input_data.py)
+#### This is a collection of notes made in a Jupyter notebook while going over the [Deep-MNIST Tutorial](http://tensorflow.org/tutorials/) for Google's Tensorflow. Some comments are ripped directly off the page, while others are attempts to simply concepts or explicitly explain what may be implied. Data set `input_data` can be found [here](https://tensorflow.googlesource.com/tensorflow/+/master/tensorflow/g3doc/tutorials/mnist/input_data.py).
 ---------
-
+#### Setup<br>
 {% highlight Python %}
 import input_data
 import tensorflow as tf
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 session  = tf.InteractiveSession()
 {% endhighlight %}
-#### Setup
+
 --------
 {% highlight Python %}
 
@@ -41,7 +41,11 @@ session.run(tf.initialize_all_variables())
 
 {% endhighlight %}
 
-#### Softmax Regression
+### Softmax Regression
+
+This is my first encounter with TensorFlow, but this appears to be a key feature:
+This step doesn't actually train the model, but instead adds the necessary
+operations to our tensors computational graph.
 ------------
 
 {% highlight Python %}
@@ -51,48 +55,42 @@ y = tf.nn.softmax(tf.matmul(x,W) + b)
 cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 # Train the model
 # Steepest Gradient Decent -> 0.01
-# **Note**: This actually doesn't train the model, but adds the necessary
-# operations to the computational graph
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
 {% endhighlight %}
 
-#### Training
+#### Training - for each training step, load 50 examples
 ------------
 
 {% highlight Python %}
 
 for i in range(1000):
-    # for each training step, load 50 examples
     batch = mnist.train.next_batch(50)
     # `feed_dict` replaces the placeholder
     # variable we created earlier with the actual training data
-    # **Note**: you can replace any tensor in your computation graph
-    # using `feed_dict` -- it's not restricted to just placeholders
     train_step.run(feed_dict={x: batch[0], y_: batch[1]})
 
 {% endhighlight %}
+__*Note*__: you can replace any tensor in your computation graph
+using `feed_dict` -- it's not restricted to just placeholders <br>
 
-#### Measure Accuracy
+#### Measure Accuracy - `argmax` returns the index of the highest entry in a tensor along some axis.
+
+In order to test the accuracy, we cast the matrix of booleans returned by .equal() to 1's and 0'1, and take the average
 -----------
 
 {% highlight Python %}
-# `argmax` returns the index of the highest
-# entry in a tensor along some axis
 # argmax(y,1) -> what the model predicted
 # argmax(y_,1) -> what the model actually is
 # equal() is used here to test if classified correctly
 correct_prediction = tf.equal(tf.argmax(y,1),tf.argmax(y_,1))
-# in order to test the accuracy, we cast the matrix
-# of booleans returned by .equal()
-# to 1's and 0'1, and take the average
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 print "Softmax Regression Accuracy ",accuracy.eval(feed_dict={x:mnist.test.images,
                            y_: mnist.test.labels})
 
 {% endhighlight %}
 
-#### Deep Convolution Network
+### Deep Convolution Network
 -------
 
 {% highlight Python %}
@@ -139,7 +137,7 @@ def max_pool_2x2(x):
 W_conv1 = weight_variable([5,5,1,32])
 b_conv1 = bias_variable([32])
 
-# Reshape before applying layer
+# Reshape the tensor before applying layer
 x_image = tf.reshape(x,[-1,28,28,1])
 h_conv1 = tf.nn.relu(conv2d(x_image,W_conv1) + b_conv1)
 h_pool1 = max_pool_2x2(h_conv1)
@@ -161,14 +159,14 @@ h_pool2 = max_pool_2x2(h_conv2)
 {% endhighlight %}
 
 #### Densely Connected Layer
+
+We now reduce image to 7x7, and add a fully-connected layer w/ 1024 neurons
+to process the entire image. We then reshape the tensor from the pooling layer
+into a batch of vectors, then multiply by a weight matrix,
+add a bias and apply a Rectified Linear Units(ReLU)
 ---------
 {% highlight Python %}
 
-# Reduce image to 7x7, add a fully-connected layer w/
-# 1024 neurons to process the entire image.
-# We then reshape the tensor from the pooling layer
-# intoa batch of vectors, then multiply by a weight matrix,
-# add a bias and apply a Rectified Linear Units(ReLU)
 W_fc1 = weight_variable([7 * 7 * 64,1024])
 b_fc1 = bias_variable([1024])
 
@@ -178,15 +176,15 @@ h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat,W_fc1) + b_fc1)
 {% endhighlight %}
 
 #### Dropout Step
+
+Since our densly connected layer is prone to overfitting,
+we `dropout` some nodes in the graph. We create a `placeholder` container
+for the probability that a node is kept -- this is turned off during testing.
+
 --------
 
 {% highlight Python %}
 
-# Since our densly connected layer is prone
-# to overfitting, we `dropout` some nodes
-# We create a `placeholder` container for the
-# probability that a node is kept --
-# this is turned off during testing
 keep_prob = tf.placeholder("float")
 # TF's `tf.nn.dropout` function automagically
 # scales and masks neuron outputs, so Dropout reduced to one line of code:
@@ -205,14 +203,14 @@ y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 {% endhighlight %}
 
 #### Training the Network
+
+Pretty similar to the Sofmax network save an improved
+ADAM opimizer over 0.1 Gradient Decent Step,
+additional parameters for dropout, and logging.
 --------
 
 {% highlight Python %}
 
-'''
-    Pretty similar to the Sofmax network save an improved ADAM opimizer
-    over 0.1 Gradient Decent Step, additional parameters for dropout, and logging.
-'''
 cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv))
 train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
 correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
