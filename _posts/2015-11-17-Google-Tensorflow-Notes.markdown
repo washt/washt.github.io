@@ -6,18 +6,18 @@ categories: machine learning
 ---
 
 ### This is a collection of notes made in a Jupyter notebook while going over the [Deep-MNIST](http://tensorflow.org/tutorials/mnist/pros/index.md) tutorial for Google's Tensorflow. Some comments are ripped directly off the page, while others are attempts to simply concepts or explicitly explain what may be implied.
+---------
 
-
-``` python
+{% highlight Python %}
 import input_data
 import tensorflow as tf
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 session  = tf.InteractiveSession()
+{% endhighlight %}
 
-```
 Data set can be found [here]()
 
-``` python
+{% highlight Python %}
 
 '''
     placeholders are not specific values -- but containers
@@ -40,10 +40,10 @@ y_ = tf.placeholder("float",shape=[None,10])
 # register the variable with thge given session
 session.run(tf.initialize_all_variables())
 
-```
+{% endhighlight %}
 
 
-``` python
+{% highlight Python %}
 
 # Softmax regression
 y = tf.nn.softmax(tf.matmul(x,W) + b)
@@ -56,10 +56,11 @@ cross_entropy = -tf.reduce_sum(y_*tf.log(y))
 # operations to the computational graph
 train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
 
-```
+{% endhighlight %}
 
 
-``` python
+{% highlight Python %}
+
 for i in range(1000):
     # for each training step, load 50 examples
     batch = mnist.train.next_batch(50)
@@ -69,9 +70,9 @@ for i in range(1000):
     # using `feed_dict` -- it's not restricted to just placeholders
     train_step.run(feed_dict={x: batch[0], y_: batch[1]})
 
-```
+{% endhighlight %}
 
-``` python
+{% highlight Python %}
 # `argmax` returns the index of the highest
 # entry in a tensor along some axis
 # argmax(y,1) -> what the model predicted
@@ -85,9 +86,10 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
 print "Softmax Regression Accuracy ",accuracy.eval(feed_dict={x:mnist.test.images,
                            y_: mnist.test.labels})
 
-```
+{% endhighlight %}
 
-``` python
+
+{% highlight Python %}
 
 def weight_variable(shape):
     '''
@@ -121,10 +123,10 @@ def max_pool_2x2(x):
     return tf.nn.max_pool(x,ksize=[1,2,2,1],
                           strides=[1,2,2,1],padding='SAME')
 
-```
+{% endhighlight %}
 
 
-``` python
+{% highlight Python %}
 
 # First Convolutional Layer
 W_conv1 = weight_variable([5,5,1,32])
@@ -135,10 +137,10 @@ x_image = tf.reshape(x,[-1,28,28,1])
 h_conv1 = tf.nn.relu(conv2d(x_image,W_conv1) + b_conv1)
 h_pool1 = max_pool_2x2(h_conv1)
 
-```
+{% endhighlight %}
 
 
-``` python
+{% highlight Python %}
 
 # Second Convolutional Layer -
 # 64 Features per 5x5 patch
@@ -148,10 +150,10 @@ b_conv2 = bias_variable([64])
 h_conv2 = tf.nn.relu(conv2d(h_pool1,W_conv2) + b_conv2)
 h_pool2 = max_pool_2x2(h_conv2)
 
-```
+{% endhighlight %}
 
 
-``` python
+{% highlight Python %}
 
 # Densely Connected Layer
 # Reduce image to 7x7, add a fully-connected layer w/
@@ -165,10 +167,10 @@ b_fc1 = bias_variable([1024])
 h_pool2_flat = tf.reshape(h_pool2,[-1,7 * 7 * 64])
 h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat,W_fc1) + b_fc1)
 
-```
+{% endhighlight %}
 
 
-``` python
+{% highlight Python %}
 
 # Dropout
 # Since our densly connected layer is prone
@@ -181,19 +183,19 @@ keep_prob = tf.placeholder("float")
 # scales and masks neuron outputs, so Dropout reduced to one line of code:
 h_fc1_drop = tf.nn.dropout(h_fc1,keep_prob)
 
-```
+{% endhighlight %}
 
 
-``` python
+{% highlight Python %}
 
 # Readout Layer - softmax
 W_fc2 = weight_variable([1024,10])
 b_fc2 = bias_variable([10])
 y_conv = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 
-```
+{% endhighlight %}
 
-``` python
+{% highlight Python %}
 
 '''
     Pretty similar to the Sofmax network save an improved ADAM opimizer
@@ -217,4 +219,4 @@ print "Test Accuracy %g"%accuracy.eval(feed_dict={
         x:mnist.test.images,y_:mnist.test.labels, keep_prob:1.0
     })
 
-```
+{% endhighlight %}
