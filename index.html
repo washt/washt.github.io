@@ -1,20 +1,17 @@
----
-layout: default
----
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <title>washt</title>
+ <link rel="icon" type="image/svg" href="assets/img/favicon.png">
+ <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+ <link rel="stylesheet" href="assets/styles/main.css">
+ <link rel="canonical" href="http://washt.xyz/">
+</head>
+<body>
+	<div class="bio">
+		<h1 class="text-red">washt@xyz:~/$<span class="blink">_</span></h1> 
+	</div>
+</html>

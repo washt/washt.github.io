@@ -1,0 +1,33 @@
+html {
+	background: #000000;
+	color: #FFFFFF;
+}
+
+.text-cobalt {
+	color: #4C45D7;
+	font-weight : bold;
+}
+
+.text-yellow {
+	color: #EFE207;
+	font-weight : bold;
+}
+
+.text-red {
+	color: #F21B42;
+	font-weight : bold;
+}
+
+.bio {
+	margin-left : 100px;
+  margin-right : 100px;
+	font-family : 'Source Code Pro';
+}
+
+.blink {
+	  animation: blinker 1.2s step-start infinite;
+}
+
+@keyframes blinker {  
+		50% { opacity: 0.0; }
+}
