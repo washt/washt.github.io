@@ -3,6 +3,18 @@ html {
 	color: #FFFFFF;
 }
 
+input[type=text] {
+	background: #000000;
+	border: none;
+	font-family: 'Source Code Pro';
+	font-size: 28px;
+	height: 30px;
+}
+
+*:focus {
+	    outline: none;
+}
+
 .text-cobalt {
 	color: #4C45D7;
 	font-weight : bold;
