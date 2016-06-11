@@ -3,6 +3,18 @@ html {
 	color: #FFFFFF;
 }
 
+input[type=text] {
+	background: #000000;
+	border: none;
+	font-family: 'Source Code Pro';
+	font-size: 28px;
+	height: 30px;
+}
+
+*:focus {
+	    outline: none;
+}
+
 .text-cobalt {
 	color: #4C45D7;
 	font-weight : bold;
@@ -24,10 +36,3 @@ html {
 	font-family : 'Source Code Pro';
 }
 
-.blink {
-	  animation: blinker 1.2s step-start infinite;
-}
-
-@keyframes blinker {  
-		50% { opacity: 0.0; }
-}
