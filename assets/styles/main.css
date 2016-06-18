@@ -10,29 +10,34 @@ input[type=text] {
 	font-size: 28px;
 	height: 30px;
 }
-
 *:focus {
 	    outline: none;
 }
-
 .text-cobalt {
 	color: #4C45D7;
-	font-weight : bold;
+	font-weight: bold;
 }
-
 .text-yellow {
 	color: #EFE207;
-	font-weight : bold;
+	font-weight: bold;
 }
-
 .text-red {
 	color: #F21B42;
-	font-weight : bold;
+	font-weight: bold;
 }
-
 .bio {
-	margin-left : 100px;
-  margin-right : 100px;
-	font-family : 'Source Code Pro';
+	margin-left: 100px;
+  margin-right: 100px;
+	font-family: 'Source Code Pro';
 }
-
+.foot {
+	position: absolute;
+	margin-left: 100px;
+	margin-right: 100px;
+	bottom:0;
+}
+.footimg {
+	position: relative;
+  display: block;
+	float: right;
+}
