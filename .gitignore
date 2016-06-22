@@ -1,5 +1,2 @@
-_site
-_drafts
-_sass
-css
 *.swp
+.sass-cache
