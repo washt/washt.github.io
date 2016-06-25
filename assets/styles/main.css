@@ -2,7 +2,6 @@ html {
 	background: #000000;
 	color: #FFFFFF;
 }
-
 input[type=text] {
 	background: #000000;
 	border: none;
@@ -12,6 +11,12 @@ input[type=text] {
 }
 *:focus {
 	    outline: none;
+}
+ul { 
+	list-style: none;
+}
+li:before {
+	content: "* ";
 }
 .text-cobalt {
 	color: #4C45D7;
