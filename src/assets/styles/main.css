@@ -1,17 +1,31 @@
 html {
 	background: #000000;
 	color: #FFFFFF;
+	font-family: 'Source Code Pro';
 }
-
 input[type=text] {
 	background: #000000;
 	border: none;
-	font-family: 'Source Code Pro';
 	font-size: 28px;
 	height: 30px;
 }
+a { 
+	text-decoration: none;
+}
+a:link {
+	color: #EFE207;
+}
+a:visited {
+	color: #EFE207;
+}
 *:focus {
 	    outline: none;
+}
+ul { 
+	list-style: none;
+}
+li:before {
+	content: "* ";
 }
 .text-cobalt {
 	color: #4C45D7;
@@ -25,15 +39,23 @@ input[type=text] {
 	color: #F21B42;
 	font-weight: bold;
 }
-.bio {
-	margin-left: 100px;
-  margin-right: 100px;
-	font-family: 'Source Code Pro';
+.header {
+	display:inline-flex;
 }
-.foot {
-	position: absolute;
-	margin-left: 100px;
-	margin-right: 100px;
+.header img {
+	padding: 10px;
+}
+.header a { 
+	padding: 10px 10px 0px 0px;
+	text-decoration: none;
+	display:inline-flex;
+	margin: 25px;
+}
+.bio {
+	margin: 0px 50px 0px 50px;
+}
+.footer {
+	margin: 0px 50px 0px 50px;
 	bottom:0;
 }
 .footimg {
