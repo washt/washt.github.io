@@ -1,12 +1,15 @@
 import React from 'react';
 import Radium from 'radium';
 import fa from 'react-fontawesome';
+// Components
+import Brand from '../components/brand.jsx';
 
 @Radium
 export default class Landing extends React.Component {
   render() {
     return (
       <div className="Landing" style={[landing.div]}>
+        <Brand />
         <h2 style={[landing.brand]}>Tucker Wash</h2>
 	<p style={[landing.message]}>
 	Polyglot Programmer interested in startups, AI, and The Web.</p>
