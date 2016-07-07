@@ -19770,7 +19770,7 @@
 	          _react2.default.createElement(
 	            'a',
 	            { style: [landing.link, landing.yellow],
-	              href: 'https://www.github.com/washt' },
+	              href: 'http://washt.xyz/#' },
 	            _react2.default.createElement('fa', { className: 'fa fa-briefcase' }),
 	            ' Portfolio '
 	          ),
