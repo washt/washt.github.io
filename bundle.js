@@ -19771,6 +19771,7 @@
 	            'a',
 	            { style: [landing.link, landing.yellow],
 	              href: 'https://www.github.com/washt' },
+	            _react2.default.createElement('fa', { className: 'fa fa-briefcase' }),
 	            ' Portfolio '
 	          ),
 	          _react2.default.createElement(
