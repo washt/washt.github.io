@@ -13,8 +13,8 @@ export default class Landing extends React.Component {
 	<div className="Links" style={[landing.brand]}>
 	  <a style={[landing.link,
 		     landing.yellow]} 
-		   href="http://washt.xyz/#">
-		   <fa className="fa fa-briefcase"></fa> Portfolio </a>
+		   href="http://stackoverflow.com/jobs/cv/employer/462348">
+		   <fa className="fa fa-briefcase"></fa> CV </a>
 	  <a style={[landing.link,
 		     landing.green]}
 		   href="https://www.github.com/washt">
