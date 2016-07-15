@@ -19770,7 +19770,7 @@
 	          _react2.default.createElement(
 	            'a',
 	            { style: [landing.link, landing.yellow],
-	              href: 'http://stackoverflow.com/jobs/cv/employer/462348' },
+	              href: 'http://stackoverflow.com/cv/washt' },
 	            _react2.default.createElement('fa', { className: 'fa fa-briefcase' }),
 	            ' CV '
 	          ),
