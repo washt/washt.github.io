@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import colors from '../assets/styles/colors';
+import { FaBriefcase, FaGithub, FaTwitter, FaKey, FaLineChart } from 'react-icons/lib/fa';
+import Stats from './stats.jsx';
 
 export default class Landing extends React.Component {
   render() {
@@ -7,49 +10,30 @@ export default class Landing extends React.Component {
       <LandingWrapper>
         <h2>Tucker Wash</h2>
         <p>Polyglot Programmer interested in startups, AI, and The Web.</p>
-        <div className="Links">
-          <a href="../../assets/pub/TuckerWash.pdf" download="TuckerWashResume.pdf">CV</a>
-          <a href="https://www.github.com/washt">Github</a>
-          <a href="https://www.twitter.com/ducktuckgo">Twitter</a>
-          <a href="https://www.keybase.io/tucker">Keybase</a>
-          <a href="/stats">Stats</a>
-        </div>
+          <Link color="yellow" href="../../assets/pub/TuckerWash.pdf" target="_blank"><FaBriefcase/> CV</Link>
+          <Link color="green" href="https://www.github.com/washt"><FaGithub/> Github</Link>
+          <Link color="blue" href="https://www.twitter.com/ducktuckgo"><FaTwitter/> Twitter</Link>
+          <Link color="red" href="https://www.keybase.io/tucker"><FaKey/> Keybase</Link>
+          <Link color="purple" onClick={drawGraph} href="#"><FaLineChart/> Stats(Beta)</Link>
       </LandingWrapper>
      )
   }
 }
 
 const LandingWrapper = styled.section`
-  margin-top: "20%",
-  background: "#363636",
-  color: "#FFFFFF",
-  font-family: "Source Code Pro",
-  text-align: "center"
+  margin-top: 20%;
+  background: #363636;
+  color: #FFFFFF;
+  font-family: Source Code Pro;
+  text-align: center;
 `;
-const landing = {
-  brand: {
-    textAlign: "center",
-  },
-  message: {
-    textAlign: "center",
-  },
-  link: {
-    textDecoration: "none",
-  },
-  green: {
-    color: "#45F297",
-  },
-  blue: {
-    color: "#179FE5",
-  },
-  red: {
-    color: "#F25645",
-  },
-  yellow: {
-    color: "#E3EB1F",
-  },
-  purple: {
-    color: "#743DFF"
-  }
 
+const Link = styled.a`
+  text-decoration: none;
+  color: ${props => colors[props.color] ? colors[props.color] : colors.blue};
+  padding: 5px;
+`;
+
+function drawGraph() {
+  console.log('YO')
 }
