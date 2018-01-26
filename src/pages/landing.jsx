@@ -1,46 +1,32 @@
 import React from 'react';
-import Radium from 'radium';
-import fa from 'react-fontawesome';
+import styled from 'styled-components';
 
-@Radium
 export default class Landing extends React.Component {
   render() {
     return (
-      <div className="Landing" style={[landing.div]}>
-        <h2 style={[landing.brand]}>Tucker Wash</h2>
-	<p style={[landing.message]}>
-	Polyglot Programmer interested in startups, AI, and The Web.</p>
-	<div className="Links" style={[landing.brand]}>
-	  <a style={[landing.link,
-		     landing.yellow]} 
-		   href="../../assets/pub/TuckerWash.pdf"
-		   download="TuckerWashResume.pdf">
-		   <fa className="fa fa-briefcase"></fa> CV </a>
-	  <a style={[landing.link,
-		     landing.green]}
-		   href="https://www.github.com/washt">
-		   <fa className="fa fa-github"></fa> Github </a>
-	  <a style={[landing.link,
-		     landing.blue]}
-		   href="https://www.twitter.com/ducktuckgo">
-		   <fa className="fa fa-twitter"></fa> Twitter </a>
-	  <a style={[landing.link,
-		     landing.red]}
-		   href="https://www.keybase.io/tucker">
-		   <fa className="fa fa-key"></fa> Keybase </a>
+      <LandingWrapper>
+        <h2>Tucker Wash</h2>
+        <p>Polyglot Programmer interested in startups, AI, and The Web.</p>
+        <div className="Links">
+          <a href="../../assets/pub/TuckerWash.pdf" download="TuckerWashResume.pdf">CV</a>
+          <a href="https://www.github.com/washt">Github</a>
+          <a href="https://www.twitter.com/ducktuckgo">Twitter</a>
+          <a href="https://www.keybase.io/tucker">Keybase</a>
+          <a href="/stats">Stats</a>
         </div>
-      </div>
+      </LandingWrapper>
      )
   }
 }
 
-var landing = {
-  div: {
-    marginTop: "20%",
-    background: "#363636",
-    color: "#FFFFFF",
-    fontFamily: "Source Code Pro",
-  },
+const LandingWrapper = styled.section`
+  margin-top: "20%",
+  background: "#363636",
+  color: "#FFFFFF",
+  font-family: "Source Code Pro",
+  text-align: "center"
+`;
+const landing = {
   brand: {
     textAlign: "center",
   },
@@ -61,6 +47,9 @@ var landing = {
   },
   yellow: {
     color: "#E3EB1F",
+  },
+  purple: {
+    color: "#743DFF"
   }
 
 }
