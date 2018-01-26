@@ -5,18 +5,35 @@ import { FaBriefcase, FaGithub, FaTwitter, FaKey, FaLineChart } from 'react-icon
 import Stats from './stats.jsx';
 
 export default class Landing extends React.Component {
-  render() {
-    return (
-      <LandingWrapper>
-        <h2>Tucker Wash</h2>
-        <p>Polyglot Programmer interested in startups, AI, and The Web.</p>
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden: false,
+    };
+    this.drawGraph = this.drawGraph.bind(this)
+  }
+
+  drawGraph () {
+    this.setState({ hidden: true })
+  }
+
+  render () {
+    if (!this.state.hidden) {
+      return (
+        <LandingWrapper>
+          <h2>Tucker Wash</h2>
+          <p>Polyglot Programmer interested in startups, AI, and The Web.</p>
           <Link color="yellow" href="../../assets/pub/TuckerWash.pdf" target="_blank"><FaBriefcase/> CV</Link>
           <Link color="green" href="https://www.github.com/washt"><FaGithub/> Github</Link>
           <Link color="blue" href="https://www.twitter.com/ducktuckgo"><FaTwitter/> Twitter</Link>
           <Link color="red" href="https://www.keybase.io/tucker"><FaKey/> Keybase</Link>
-          <Link color="purple" onClick={drawGraph} href="#"><FaLineChart/> Stats(Beta)</Link>
-      </LandingWrapper>
-     )
+          <Link color="purple" onClick={this.drawGraph} href="#"><FaLineChart/> Stats(Beta)</Link>
+        </LandingWrapper>
+      )
+    };
+    return (
+        <Stats/>
+    )
   }
 }
 
@@ -34,6 +51,3 @@ const Link = styled.a`
   padding: 5px;
 `;
 
-function drawGraph() {
-  console.log('YO')
-}
