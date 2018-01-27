@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import colors from '../assets/styles/colors';
+import { FaArrowLeft } from 'react-icons/lib/fa';
 
 export default class Stats extends React.Component {
   constructor(props) {
@@ -37,7 +38,7 @@ export default class Stats extends React.Component {
             <br/>
             Timestamp: {JSON.stringify(this.state.data.time)}
             <br/>
-          <Link onClick={this.goBack} href="#">Go Back</Link>
+          <Link onClick={this.goBack} href="#"><FaArrowLeft/> Go Back</Link>
           </GraphWrapper>
         )
     }
