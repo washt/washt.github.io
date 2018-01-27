@@ -11,10 +11,15 @@ export default class Landing extends React.Component {
       hidden: false,
     };
     this.drawGraph = this.drawGraph.bind(this)
+    this.goBack = this.goBack.bind(this)
   }
 
   drawGraph () {
     this.setState({ hidden: true })
+  }
+
+  goBack() {
+    this.setState({ hidden: false })
   }
 
   render () {
@@ -32,7 +37,7 @@ export default class Landing extends React.Component {
       )
     };
     return (
-        <Stats/>
+        <Stats goBack={this.goBack}/>
     )
   }
 }
