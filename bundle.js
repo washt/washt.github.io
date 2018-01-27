@@ -18735,6 +18735,7 @@
 	      hidden: false
 	    };
 	    _this.drawGraph = _this.drawGraph.bind(_this);
+	    _this.goBack = _this.goBack.bind(_this);
 	    return _this;
 	  }
 
@@ -18742,6 +18743,11 @@
 	    key: 'drawGraph',
 	    value: function drawGraph() {
 	      this.setState({ hidden: true });
+	    }
+	  }, {
+	    key: 'goBack',
+	    value: function goBack() {
+	      this.setState({ hidden: false });
 	    }
 	  }, {
 	    key: 'render',
@@ -18792,7 +18798,7 @@
 	          )
 	        );
 	      };
-	      return _react2.default.createElement(_stats2.default, null);
+	      return _react2.default.createElement(_stats2.default, { goBack: this.goBack });
 	    }
 	  }]);
 
@@ -49548,7 +49554,8 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _templateObject = _taggedTemplateLiteral(['\n  margin-top: 20%;\n  background: #363636;\n  color: #FFFFFF;\n  font-family: Source Code Pro;\n  text-align: center;\n'], ['\n  margin-top: 20%;\n  background: #363636;\n  color: #FFFFFF;\n  font-family: Source Code Pro;\n  text-align: center;\n']);
+	var _templateObject = _taggedTemplateLiteral(['\n  text-decoration: none;\n  color: ', ';\n  padding: 10px;\n'], ['\n  text-decoration: none;\n  color: ', ';\n  padding: 10px;\n']),
+	    _templateObject2 = _taggedTemplateLiteral(['\n  margin: 20%;\n  border-style: solid;\n  background: #363636;\n  color: #FFFFFF;\n  font-family: Source Code Pro;\n  text-align: center;\n'], ['\n  margin: 20%;\n  border-style: solid;\n  background: #363636;\n  color: #FFFFFF;\n  font-family: Source Code Pro;\n  text-align: center;\n']);
 
 	var _react = __webpack_require__(2);
 
@@ -49557,6 +49564,12 @@
 	var _styledComponents = __webpack_require__(37);
 
 	var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+	var _colors = __webpack_require__(47);
+
+	var _colors2 = _interopRequireDefault(_colors);
+
+	var _fa = __webpack_require__(48);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49578,8 +49591,9 @@
 
 	    _this.state = {
 	      hidden: false,
-	      data: null
+	      data: {}
 	    };
+	    _this.goBack = _this.goBack.bind(_this);
 	    return _this;
 	  }
 
@@ -49588,11 +49602,20 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      fetch('https://willowlabs.io/', { method: 'GET', mode: 'cors' }).then(function (resp) {
-	        return console.log(resp);
+	      var myheaders = new Headers();
+	      fetch('https://willowlabs.io', { method: 'GET', headers: myheaders, mode: 'cors' }).then(function (resp) {
+	        return resp.json();
+	      }).then(function (resp) {
+	        _this2.setState({ data: { time: resp.time, ip: resp.xForwardedFor } });
 	      }).catch(function (e) {
-	        return _this2.data = e;
+	        return _this2.state.data = e;
 	      });
+	    }
+	  }, {
+	    key: 'goBack',
+	    value: function goBack() {
+	      this.setState({ hidden: true });
+	      this.props.goBack();
 	    }
 	  }, {
 	    key: 'render',
@@ -49607,7 +49630,18 @@
 	            null,
 	            'Here\'s some data tho:'
 	          ),
-	          this.state.data
+	          'Your IP: ',
+	          JSON.stringify(this.state.data.ip),
+	          _react2.default.createElement('br', null),
+	          'Timestamp: ',
+	          JSON.stringify(this.state.data.time),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            Link,
+	            { onClick: this.goBack, href: '#' },
+	            _react2.default.createElement(_fa.FaArrowLeft, null),
+	            ' Go Back'
+	          )
 	        );
 	      }
 	      return null;
@@ -49620,7 +49654,11 @@
 	exports.default = Stats;
 
 
-	var GraphWrapper = _styledComponents2.default.section(_templateObject);
+	var Link = _styledComponents2.default.a(_templateObject, function (props) {
+	  return _colors2.default[props.color] ? _colors2.default[props.color] : _colors2.default.blue;
+	});
+
+	var GraphWrapper = _styledComponents2.default.section(_templateObject2);
 
 /***/ })
 /******/ ]);
