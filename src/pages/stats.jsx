@@ -13,7 +13,7 @@ export default class Stats extends React.Component {
     this.goBack = this.goBack.bind(this)
   }
 
-  componentDidMount() {
+  componentWillMount() {
       const myheaders = new Headers();
       fetch('https://willowlabs.io', { method: 'GET', headers: myheaders, mode: 'cors' })
       .then(resp => resp.json())
