@@ -34,11 +34,9 @@ export default class Stats extends React.Component {
           <GraphWrapper>
             Just a test.
             <p>Here's some data tho:</p>
-            Your IP: {JSON.stringify(this.state.data.ip)}
-            <br/>
-            Timestamp: {JSON.stringify(this.state.data.time)}
-            <br/>
-          <Link onClick={this.goBack} href="#"><FaArrowLeft/> Go Back</Link>
+            <p>Your IP: {JSON.stringify(this.state.data.ip)}</p>
+            <p>Timestamp: {JSON.stringify(this.state.data.time)}</p>
+            <Link onClick={this.goBack} href="#"><FaArrowLeft/> Go Back</Link>
           </GraphWrapper>
         )
     }
