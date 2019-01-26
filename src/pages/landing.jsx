@@ -30,9 +30,9 @@ export default class Landing extends React.Component {
           <p>Polyglot Programmer interested in startups, AI, and The Web.</p>
           <Link color="yellow" href="../../assets/pub/TuckerWash.pdf" target="_blank"><FaBriefcase/> CV</Link>
           <Link color="green" href="https://www.github.com/washt"><FaGithub/> Github</Link>
-          <Link color="blue" href="https://www.twitter.com/ducktuckgo"><FaTwitter/> Twitter</Link>
+          <Link color="blue" href="https://www.twitter.com/tttuckerrr"><FaTwitter/> Twitter</Link>
           <Link color="red" href="https://www.keybase.io/tucker"><FaKey/> Keybase</Link>
-          <Link color="purple" onClick={this.drawGraph} href="#"><FaLineChart/> Stats(Beta)</Link>
+          {/* <Link color="purple" onClick={this.drawGraph} href="#"><FaLineChart/> Stats(Beta)</Link> */}
         </LandingWrapper>
       )
     };
