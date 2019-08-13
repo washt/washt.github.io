@@ -33,7 +33,7 @@ export default class Stats extends React.Component {
         return (
           <GraphWrapper>
             Just a test.
-            <p>Here's some data tho:</p>
+            <p>Here's some data:</p>
             <p>Your IP: {this.state.data.ip}</p>
             <p>Timestamp: {this.state.data.time}</p>
             <Link onClick={this.goBack} href="#"><FaArrowLeft/> Go Back</Link>
