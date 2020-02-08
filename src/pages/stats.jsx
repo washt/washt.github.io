@@ -31,7 +31,7 @@ export default class Stats extends React.Component {
       .then(resp => {
         const starEvents = resp
                             .filter(r => r.type === "WatchEvent")
-                            .map(r => ({name: r.repo.name, url: r.repo.url}))
+                            .map(r => ({name: r.repo.name, url: r.repo.url.replace("api.", "").replace("repos/", "")}))
         this.setState({data: {github_starred: starEvents}})
       })
       .catch(e => this.state.data = e)
@@ -48,13 +48,10 @@ export default class Stats extends React.Component {
         return (
           <div>
             <GraphWrapper>
-              Just a test.
-              <p>Here's some data:</p>
-              <p>Your IP: {this.state.ip}</p>
-              <p>Timestamp: {this.state.time}</p>
+              <p>Recent Activity</p>
+              { this.state.data.github_starred ? this.state.data.github_starred.map(item => <StyledGridItem url={item.url} name={item.name}/>) : null}
               <Link onClick={this.goBack} href="#"><FaArrowLeft/> Go Back</Link>
             </GraphWrapper>
-            { this.state.data.github_starred ? this.state.data.github_starred.map(item => <StyledGridItem url={item.url} name={item.name}/>) : null}
   
           </div>
        )
@@ -65,14 +62,18 @@ export default class Stats extends React.Component {
 
 
 const GridItem = (props) => (
-  <div className="grid-item">
-    <p>Name: {props.name}</p>
-    <a href={props.url}>{props.url}</a>
+  <div className="flex mb-4">
+    <div className="w-full bg-gray-500 h-12">
+      <Link href={props.url}>Starred {props.name}</Link>
+    </div>
   </div>
 );
 
 const StyledGridItem = styled(GridItem)`
-  text-decoration: none;
+  a {
+    text-decoration: none;
+    color: inherit;
+  };
   color: ${props => colors[props.color] ? colors[props.color] : colors.blue};
   padding: 10px;
 `;
