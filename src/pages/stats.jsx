@@ -15,27 +15,17 @@ export default class Stats extends React.Component {
       },
     };
     this.goBack = this.goBack.bind(this)
-  }
+    const myheaders = new Headers();
 
-  componentDidMount() {
-      const myheaders = new Headers();
-      fetch('https://willowlabs.io', { method: 'GET', headers: myheaders, mode: 'cors' })
-      .then(resp => resp.json())
-      .then(resp => {
-        this.setState({data: {time : resp.time, ip: resp.xForwardedFor}})
-      })
-      .catch(e => this.state.data = e)
-
-      fetch('https://api.github.com/users/washt/events', { method: 'GET', headers: myheaders, mode: 'cors' })
-      .then(resp => resp.json())
-      .then(resp => {
-        const starEvents = resp
-                            .filter(r => r.type === "WatchEvent")
-                            .map(r => ({name: r.repo.name, url: r.repo.url.replace("api.", "").replace("repos/", "")}))
-        this.setState({data: {github_starred: starEvents}})
-      })
-      .catch(e => this.state.data = e)
-
+    fetch('https://api.github.com/users/washt/events', { method: 'GET', headers: myheaders, mode: 'cors' })
+    .then(resp => resp.json())
+    .then(resp => {
+      const starEvents = resp
+                          .filter(r => r.type === "WatchEvent")
+                          .map(r => ({name: r.repo.name, url: r.repo.url.replace("api.", "").replace("repos/", "")}))
+      this.setState({data: {github_starred: starEvents}})
+    })
+    .catch(e => this.state.data = e)
   }
 
   goBack() {
@@ -50,9 +40,8 @@ export default class Stats extends React.Component {
             <GraphWrapper>
               <p>Recent Activity</p>
               { this.state.data.github_starred ? this.state.data.github_starred.map(item => <StyledGridItem url={item.url} name={item.name}/>) : null}
-              <Link onClick={this.goBack} href="#"><FaArrowLeft/> Go Back</Link>
+              <Link onClick={this.goBack} href="#" color="yellow"><FaArrowLeft/>Home</Link>
             </GraphWrapper>
-  
           </div>
        )
     }
