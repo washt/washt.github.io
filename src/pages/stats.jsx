@@ -8,19 +8,24 @@ export default class Stats extends React.Component {
     super(props);
     this.state = {
       hidden: false,
-      data: {},
+      data: {
+        ip: this.props.ip ? this.props.ip : "localhost",
+        time: null,
+        github_starred: []
+      },
     };
     this.goBack = this.goBack.bind(this)
-  }
+    const myheaders = new Headers();
 
-  componentWillMount() {
-      const myheaders = new Headers();
-      fetch('https://willowlabs.io', { method: 'GET', headers: myheaders, mode: 'cors' })
-      .then(resp => resp.json())
-      .then(resp => {
-        this.setState({data: {time : resp.time, ip: resp.xForwardedFor}})
-      })
-      .catch(e => this.state.data = e)
+    fetch('https://api.github.com/users/washt/events', { method: 'GET', headers: myheaders, mode: 'cors' })
+    .then(resp => resp.json())
+    .then(resp => {
+      const starEvents = resp
+                          .filter(r => r.type === "WatchEvent")
+                          .map(r => ({name: r.repo.name, url: r.repo.url.replace("api.", "").replace("repos/", "")}))
+      this.setState({data: {github_starred: starEvents}})
+    })
+    .catch(e => this.state.data = e)
   }
 
   goBack() {
@@ -31,18 +36,36 @@ export default class Stats extends React.Component {
   render() {
     if(!this.state.hidden) {
         return (
-          <GraphWrapper>
-            Just a test.
-            <p>Here's some data:</p>
-            <p>Your IP: {this.state.data.ip}</p>
-            <p>Timestamp: {this.state.data.time}</p>
-            <Link onClick={this.goBack} href="#"><FaArrowLeft/> Go Back</Link>
-          </GraphWrapper>
-        )
+          <div>
+            <GraphWrapper>
+              <p>Recent Activity</p>
+              { this.state.data.github_starred ? this.state.data.github_starred.map(item => <StyledGridItem url={item.url} name={item.name}/>) : null}
+              <Link onClick={this.goBack} href="#" color="yellow"><FaArrowLeft/>Home</Link>
+            </GraphWrapper>
+          </div>
+       )
     }
     return null
   }
 }
+
+
+const GridItem = (props) => (
+  <div className="flex mb-4">
+    <div className="w-full bg-gray-500 h-12">
+      <Link href={props.url}>Starred {props.name}</Link>
+    </div>
+  </div>
+);
+
+const StyledGridItem = styled(GridItem)`
+  a {
+    text-decoration: none;
+    color: inherit;
+  };
+  color: ${props => colors[props.color] ? colors[props.color] : colors.blue};
+  padding: 10px;
+`;
 
 const Link = styled.a`
   text-decoration: none;
