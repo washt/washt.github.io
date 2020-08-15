@@ -27,7 +27,7 @@ export default class Landing extends React.Component {
       return (
         <LandingWrapper>
           <h2>Tucker Wash</h2>
-          <p>full-stack developer @<Link color="orange" href="https://mobelux.com/">Mobelux</Link></p>
+          <p>Software Engineer @<Link color="hopinblue" href="https://hopin.to/">Hopin</Link></p>
           <p>❤️'s:</p>
           <p>computing 👨‍💻</p>
           <p>trail running 🏔🏃‍♂️🏔</p>
