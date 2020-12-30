@@ -34,18 +34,43 @@ ul {
 li:before {
 	content: "* ";
 }
+.color-background-primary {
+	background:#363636;
+}
+.text-blue {
+	color: #179FE5;
+}
+.text-blue-hopin {
+	color: #315ADA;
+}
 .text-cobalt {
 	color: #4C45D7;
 	font-weight: bold;
+}
+.text-purple {
+	color: #743DFF;
+}
+.text-green {
+	color: #45F297;
 }
 .text-yellow {
 	color: #EFE207;
 	font-weight: bold;
 }
+.text-yellow-og {
+	color: #E3EB1F;
+}
+.text-orange {
+	color: #FF6C0A;
+}
 .text-red {
 	color: #F21B42;
 	font-weight: bold;
 }
+.text-red-og {
+	color: #F25645;
+}
+
 .header {
 	display:inline-flex;
 }
