@@ -21,7 +21,7 @@ body {
 a {
   text-decoration: none;
 
-  color: var(--green);
+  color: var(--yellow-100);
 
   // `:focus` is linked to `:hover` for basic accessibility
   &:hover,
@@ -69,4 +69,16 @@ mark {
   padding: .15rem;
   background-color: var(--yellow-100);
   border-radius: .125rem;
+}
+
+.color-green {
+  color: var(--green);
+}
+
+.color-yellow {
+  color: var(--yellow);
+}
+
+.color-pink {
+  color: var(--pink);
 }
