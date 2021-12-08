@@ -1,5 +1,8 @@
 ---
-layout: page
-title:
+layout: grid 
+title: some of my favorite pixels
 ---
-TBD ✌️
+some captured, others encountered
+
+![Kanye](/assets/img/kanye.png)
+![keyboard](/assets/img/russian_keyboard.jpg)
