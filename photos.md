@@ -1,8 +1,8 @@
 ---
 layout: grid 
 title: some of my favorite pixels
+subtitle: some captured, others encountered
 ---
-some captured, others encountered
 
 ![Kanye](/assets/img/kanye.png)
 ![keyboard](/assets/img/russian_keyboard.jpg)

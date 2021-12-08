@@ -5,7 +5,9 @@
 .masthead {
   padding-top: var(--spacer);
   padding-bottom: var(--spacer);
-  margin-bottom: var(--spacer-3);
+  // margin-bottom: var(--spacer-3);
+  display: flex;
+  justify-content: space-between;
 }
 
 .masthead-title {
@@ -19,4 +21,8 @@
     font-weight: 400;
     opacity: .5;
   }
+}
+
+.masthead-nav-container {
+  padding-top: var(--spacer);
 }
