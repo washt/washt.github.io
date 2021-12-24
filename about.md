@@ -13,7 +13,7 @@ my work focuses mainly on backend web application development, but i have hobbyi
 
 in the past, i've written code that powers highly-available ad-delivery systems, MLS search engines, CVE reporting applications, and hybrid e-commerce stores.
 
-outside of family and work, i try utilize my free time to cultivate my interests:
+outside of family and work, i enjoy cultivating  my interests:
   * cooking (my current go-to dishes are carbonara and [pizza from scratch](https://twitter.com/tttuckerrr/status/1450540042817048579?s=20) 🍕)
   * exploring (trail running, orienteering, camping)
   * underground electronic music  ([some of my favorite tunes 💃💃💃](https://open.spotify.com/playlist/2m5v9AuwYBKqj3ch1QbtVC?si=bc343e28479e440c))
