@@ -4,13 +4,58 @@
  <title>tttuckerrr</title>
  <link href="/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2021-12-24T15:10:02-05:00</updated>
+ <updated>2025-03-12T10:49:22-04:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>tttuckerrr</name>
    <email>tucker@songbird.sh</email>
  </author>
 
+ 
+ <entry>
+   <title>Brainstorming..</title>
+   <link href="http://localhost:4000/2023/04/29/post/"/>
+   <updated>2023-04-29T00:00:00-04:00</updated>
+   <id>http://localhost:4000/2023/04/29/post</id>
+   <content type="html">&lt;h1 id=&quot;goals&quot;&gt;Goals&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;~3 projects, from small to large in implementation difficulty.&lt;/li&gt;
+  &lt;li&gt;2 should be heavy on the product side, with posts covering process, product dev, and refinement.
+    &lt;ul&gt;
+      &lt;li&gt;3D visualization of a public gis dataset&lt;/li&gt;
+      &lt;li&gt;NYC apartment finder&lt;/li&gt;
+      &lt;li&gt;iOS app to share &amp;amp; remix AI artists&lt;/li&gt;
+      &lt;li&gt;WhatsApp GPT bot for SMB management&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://twitter.com/thesephist/status/1652731121975824384?s=20&quot;&gt;information cartography&lt;/a&gt; “calculator for the web”
+        &lt;ul&gt;
+          &lt;li&gt;niche topic explorer: gpt powered, ui similar to &lt;a href=&quot;https://flux.paradigm.xyz&quot;&gt;flux&lt;/a&gt; for exploring topics, prompts for learning, and note-taking.&lt;/li&gt;
+          &lt;li&gt;recursive reader, translater, and anki card generator / reviewer&lt;/li&gt;
+          &lt;li&gt;extend &lt;a href=&quot;https://github.com/1rgs/clarity-reader&quot;&gt;clarity&lt;/a&gt; to support material review and referencing&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;1 should be heavy on the technical side
+    &lt;ul&gt;
+      &lt;li&gt;&lt;del&gt;bloom filter implementation&lt;/del&gt;&lt;/li&gt;
+      &lt;li&gt;some tool built on top of &lt;a href=&quot;https://atproto.com/guides/overview&quot;&gt;bluesky&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Perlin_noise&quot;&gt;perlin noise&lt;/a&gt; 3d terrain generator&lt;/li&gt;
+      &lt;li&gt;geospatial classifier&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;meta&quot;&gt;Meta&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;priority is to build things that &lt;em&gt;both&lt;/em&gt; generate cashflow and are suitable for a portfolio.&lt;/li&gt;
+  &lt;li&gt;wrting output should be sustained at 10x current pace until we’re ramen profitable.
+    &lt;h2 id=&quot;some-resources&quot;&gt;some resources&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://medium.com/craft-ventures/the-cadence-how-to-operate-a-saas-startup-436aa8099e8&quot;&gt;Sales-Finance vs Product-Marketing&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
  
 
 </feed>
